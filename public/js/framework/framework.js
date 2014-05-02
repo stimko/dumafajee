@@ -1,10 +1,10 @@
 define(function(require){
   var $ = require('jquery');
-  var SimpleButtonView = require('./doomafagees/buttons/simpleButtonView');
-  var SimpleButtonModel = require('./doomafagees/buttons/simpleButtonModel');
+  var SimpleButtonView = require('./dumafajees/buttons/simpleButtonView');
+  var SimpleButtonModel = require('./dumafajees/buttons/simpleButtonModel');
 
-  var ToolBar = require('./doomafagees/toolbar/toolbarView');
-  var ToolBarCollection = require('./doomafagees/toolbar/toolbarModel');
+  var ToolBar = require('./dumafajees/toolbar/toolbarView');
+  var ToolBarCollection = require('./dumafajees/toolbar/toolbarModel');
 
   return {
     init: function(){
