@@ -1,5 +1,3 @@
 define(['Backbone'], function(Backbone){
-  return Backbone.Model.extend({
-    id:0
-  });
+  return Backbone.Model.extend({});
 });
