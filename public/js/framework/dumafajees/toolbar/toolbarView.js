@@ -1,11 +1,8 @@
-define(['../base/baseCollectionView', '../buttons/simpleButtonView', 'tpl!./toolbar.tpl'], 
-  function(BaseCollectionView, SimpleButtonView, ToolBarTpl){
-    return BaseCollectionView.extend({
-      el:'<div class="toolbar"></div>',
-      itemView: SimpleButtonView,
-      onRender: function() {
-        console.log(this.el);
-      }
+define(['../base/baseView', '../buttons/simpleButtonView', 'tpl!./toolbar.tpl'], 
+  function(BaseView, SimpleButtonView, ToolBarTpl){
+    return BaseView.extend({
+      className: 'toolbar',
+      template: ToolBarTpl
     });
   }
 );

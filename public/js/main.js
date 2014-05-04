@@ -13,16 +13,14 @@ requirejs.config({
       // for their dependency.
       '*': { 
         'jquery': 'jquery-private', 
-        'backbone': 'backbone-private',
-        'underscore': 'underscore-private'
+        'backbone': 'backbone-private'
       },
 
       // '*-private' wants the real module
       // though. If this line was not here, there would
       // be an unresolvable cyclic dependency.
       'jquery-private': { 'jquery': 'jquery' },
-      'backbone-private': {'backbone': 'backbone'},
-      'underscore-private': {'underscore': 'underscore'}
+      'backbone-private': {'backbone': 'backbone'}
     }
 });
 

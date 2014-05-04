@@ -4,7 +4,7 @@ define(function(require){
   var SimpleButtonModel = require('./dumafajees/buttons/simpleButtonModel');
 
   var ToolBar = require('./dumafajees/toolbar/toolbarView');
-  var ToolBarCollection = require('./dumafajees/toolbar/toolbarModel');
+  var ButtonCollection = require('./dumafajees/buttons/buttonCollection');
 
   return {
     init: function(){
@@ -12,14 +12,11 @@ define(function(require){
       var simpleButton = new SimpleButtonView({model:new SimpleButtonModel()});
       simpleButton.render();
 
-      var tbCollection = new ToolBarCollection([{'label':'test'}, {'label':'test2'}]);
-      console.log(tbCollection.models);
-      var toolbar = new ToolBar({collection: tbCollection});
+      var buttonCollection = new ButtonCollection([{label:'Home'}, {label:'About'}, {label:'Contact'}])
+      var toolbar = new ToolBar({collection: buttonCollection});
       toolbar.render();
 
       $('.stage').append([simpleButton.el, toolbar.el]);
-
-
     }
   };
 });

@@ -1,5 +1,6 @@
-define(['../base/baseCollectionModel', '../buttons/simpleButtonModel'], function(BaseCollection, SimpleButtonModel) {
-  return BaseCollection.extend({
-    model: SimpleButtonModel
+define(['../base/baseModel', '../buttons/simpleButtonModel'], 
+  function(Base, SimpleButtonModel) {
+  return Base.extend({
+    items: new ButtonCollection()
   });
 });

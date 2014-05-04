@@ -1,1 +1,3 @@
-<div class="toolbar"></div>
+<% _.each(items, function(item){ %>
+    <button> <%= item.label %> </button>
+<% }); %>
