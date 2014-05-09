@@ -1,4 +1,4 @@
-define(['../base/baseView', 'tpl!./simpleButton.tpl'], 
+define(['../../base/baseView', 'tpl!./simpleButton.tpl'], 
   function(BaseView, SimpleButtonTpl){
     return BaseView.extend({
       tagName:'button',

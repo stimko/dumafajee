@@ -1,3 +1,5 @@
-define(['Backbone'], function(Backbone) {
-  return Backbone.Collection.extend({});
+define(['Backbone', './baseModel'], function(Backbone, BaseModel) {
+  return Backbone.Collection.extend({
+    model:BaseModel
+  });
 });
