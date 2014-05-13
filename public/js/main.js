@@ -24,7 +24,7 @@ requirejs.config({
     }
 });
 
-requirejs(['framework/framework'],
+requirejs(['framework/app'],
   function(Framework) {
     Framework.init();
 });

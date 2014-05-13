@@ -8,9 +8,9 @@ var path = require('path');
 var app = express();
 
 app.set('port', 3000);
-app.use(bodyParser());
-app.use(methodOverride());
-app.use(compress());
+//app.use(bodyParser());
+//app.use(methodOverride());
+//app.use(compress());
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(errorHandler());
 
