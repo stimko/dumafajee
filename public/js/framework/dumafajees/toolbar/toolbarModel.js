@@ -1,8 +1,8 @@
-define(['../base/baseModel', '../buttons/simple/simpleButtonModel'], 
+define(['../base/models/baseModel', '../buttons/simple/simpleButtonModel'], 
   function(Base, SimpleButtonModel) {
   return Base.extend({
-    default:{
-      id:'Rhythm.toolbar',
+    defaults:{
+      id:'Compound.Toolbar',
       items: []
     }
   });

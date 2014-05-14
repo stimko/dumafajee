@@ -1,7 +1,7 @@
 define(['../simple/simpleButtonModel'], function(SimpleButton) {
   return SimpleButton.extend({
     defaults:{
-      "id": "Rhythm.buttons.dropDownButton",
+      "id": "Button.DropDownButton",
       "label":"Drop Down",
       items: []
     }

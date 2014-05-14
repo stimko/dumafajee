@@ -17,8 +17,8 @@ define(function(require){
       headerWidgetsCollection.push(toolbar);
       headerWidgetsCollection.push(simpleButton);
       
-      var headerModel = new HeaderModel({items:headerWidgetsCollection});]
-      var headerRegionView = new HeaderRegionView({});
+      var headerModel = new HeaderModel({items:headerWidgetsCollection})];
+      var headerRegionView = new HeaderRegionView({model:headerModel});
     }
   });
   }

@@ -1,5 +1,8 @@
 define(function(require){
-  var SimpleButton = require('./dumafajees/buttons/simple/simpleButtonView');
-  var DropDownButtonView = require('./dumafajees/buttons/dropdown/dropDownButtonView');
-  var ToolBarView = require('./dumafajees/toolbar/toolbarView');
+  return {
+    "Button.SimpleButton": require('./dumafajees/buttons/simple/simpleButtonView'),
+    "Button.DropDownButton": require('./dumafajees/buttons/dropdown/dropDownButtonView'),
+    "Compound.Toolbar": require('./dumafajees/toolbar/toolbarView'),
+    "Region.Header": require('./dumafajees/regions/header/headerView')
+  };
 });

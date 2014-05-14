@@ -1,7 +1,7 @@
-define(['../../base/baseModel'], function(Base) {
+define(['../../base/models/baseModel'], function(Base) {
   return Base.extend({
     defaults:{
-      "id": "Rhythm.buttons.simpleButton",
+      "id": "Button.SimpleButton",
       "label":"Simple"
     }
   });
