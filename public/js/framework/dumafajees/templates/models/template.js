@@ -1,7 +1,8 @@
-define(['../base/models/baseModel', './regionTypes'], function(Base, RegionTypes) {
+define(['../../base/models/baseModel'], function(Base) {
   return Base.extend({
     defaults: {
-      regions: []
+      id:'Template',
+      items: []
     }
   });
 });

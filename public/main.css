@@ -1,4 +1,12 @@
-.toolbar {
+[class~=panel]{
   background: grey;
   padding: 5px;
+}
+
+.group-panel {
+  float:left;
+}
+
+.group-panel > * {
+  float:left;
 }

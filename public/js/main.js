@@ -6,6 +6,7 @@ requirejs.config({
       marionette: 'backbone.marionette',
       underscore: 'underscore',
       framework: '../framework',
+      dumafajees: '../framework/dumafajees',
       tpl:'tpl'
     },
     map: {

@@ -1,7 +1,7 @@
 define(['../base/region', '../regionTypes'], function(RegionModel, RegionTypes) {
   return RegionModel.extend({
     defaults: {
-      id:"Region.Header"
+      id:"Region.Content"
     }
   });
 });

@@ -1,6 +1,6 @@
 define(function(){
   return {
-    id: 'Rythym.base',
+    id: 'Rythym.Base',
     description: 'default',
     version: '0.1',
     editType:'default',
