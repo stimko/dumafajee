@@ -1,12 +1,28 @@
+html, body {
+  height: 100%;
+}
+
+.template {
+  float:left;
+  height:100%;
+}
+
 [class~=panel]{
   background: grey;
   padding: 5px;
+  border: 1px solid whitesmoke;
 }
 
 .group-panel {
   float:left;
+  height:100%;
+  background: whitesmoke;
 }
 
 .group-panel > * {
   float:left;
+}
+
+[draggable], [draggable] * {
+  cursor:move;
 }

@@ -9,9 +9,9 @@ define(function(require){
     "Compound.GroupPanel": require('./dumafajees/panel/group/view'),
     "Compound.SimplePanel": require('./dumafajees/panel/simple/view'),
 
-    "Region.Header": require('./dumafajees/regions/header/headerRegionView'),
-    "Region.Content": require('./dumafajees/regions/content/contentRegionView'),
+    "Region.Header": require('./dumafajees/regions/header/view'),
+    "Region.Content": require('./dumafajees/regions/content/view'),
 
-    "Template": require('./dumafajees/templates/views/template')
+    "Template": require('./dumafajees/templates/view')
   };
 });

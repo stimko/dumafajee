@@ -1,4 +1,4 @@
-define(['../../base/models/baseModel'], function(Base) {
+define(['framework/dumafajees/base/models/baseModel'], function(Base) {
   return Base.extend({
     defaults: {
       id:'Template',
