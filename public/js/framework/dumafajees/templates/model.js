@@ -1,8 +1,5 @@
-define(['framework/dumafajees/base/models/baseModel'], function(Base) {
-  return Base.extend({
-    defaults: {
-      id:'Template',
-      items: []
-    }
+define(['framework/dumafajees/base/models/baseCompoundModel'], function(BaseCompoundModel) {
+  return BaseCompoundModel.extend({
+    id:'Template'
   });
 });

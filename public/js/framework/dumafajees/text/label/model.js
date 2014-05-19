@@ -1,8 +1,6 @@
-define(['framework/dumafajees/base/models/baseModel'], function(BaseModel) {
-  return BaseModel.extend({
-    defaults:{
-      "id": "Text.Label",
-      "label":"Label"
-    }
+define(['framework/dumafajees/base/models/baseCompoundModel'], function(BaseCompoundModel) {
+  return BaseCompoundModel.extend({
+    id: "Text.Label",
+    label:"Label"
   });
 });

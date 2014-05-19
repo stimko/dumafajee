@@ -18,6 +18,18 @@ app.get( '/', function(req, res, next, err) {
     res.status(200).send('index.html');
 });
 
+app.get( '/dumafajee', function(req, res, next, err) {
+    // res.json({"id":"Compound.SimplePanel",
+    //   "draggable":"true",
+    //   "dataId":"Button.SimpleButton",
+    //   "items":[
+    //     {"id":"Image",
+    //       "source":"simplebuttonImage"
+    //     },
+    //     {"id":"Text.Label",
+    //       "label": "Simple button!!"}]});
+});
+
 http.createServer( app ).listen( app.get( 'port' ), function() {
   console.log('Port: ' + app.get('port'));
 });

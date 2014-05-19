@@ -1,9 +1,6 @@
-define(['framework/dumafajees/base/models/baseModel'], 
-  function(Base) {
-  return Base.extend({
-    defaults:{
-      id:'Compound.SimplePanel',
-      items: []
-    }
+define(['framework/dumafajees/base/models/baseCompoundModel'], 
+  function(BaseCompoundModel) {
+  return BaseCompoundModel.extend({
+    id:'Compound.SimplePanel'
   });
 });

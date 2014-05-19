@@ -16,7 +16,7 @@ define(['marionette'], function(Marionette){
       console.log('drag end');
     },
     handleStartDrag: function(e) {
-      e.dataTransfer.setData('text/plain', JSON.stringify(this.model.get('data')));
+      e.dataTransfer.setData('text/plain', this.model.get('dataId'));
     }
   });
 });
