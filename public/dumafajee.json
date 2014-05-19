@@ -1,0 +1,29 @@
+{
+  "id": "Compound.SimplePanel",
+  "items": [
+    {"id":"Compound.SimplePanel",
+      "draggable":"true",
+      "dataId":"Button.SimpleButton",
+      "items":[ 
+        {"id":"Image",
+          "source":"simplebuttonImage"
+        },
+        {"id":"Text.Label",
+          "label": "Simple button!!"
+        }
+      ]
+    },
+    {"id":"Compound.SimplePanel",
+      "draggable":"true",
+      "dataId":"Button.DropDownButton",
+      "items":[ 
+        {"id":"Image",
+          "source":"dropDownButtonImage"
+        },
+        {"id":"Text.Label",
+          "label": "Drop Down button!!"
+        }
+      ]
+    }
+  ]
+}
