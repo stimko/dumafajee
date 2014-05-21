@@ -1,6 +1,8 @@
-define(['../../base/models/baseModel'], function(Base) {
-  return Base.extend({
-    id: "Button.SimpleButton",
-    label:"Simple"
+define(['../../base/models/baseModel'], function(BaseModel) {
+  return BaseModel.extend({
+    defaults: _.extend({}, BaseModel.prototype.defaults, {
+      dumafajeeId: "Button.SimpleButton",
+      label:"Simple"
+    })
   });
 });

@@ -1,6 +1,9 @@
 define(['framework/dumafajees/base/models/baseCompoundModel'], 
   function(BaseCompoundModel) {
   return BaseCompoundModel.extend({
-    id:'Compound.GroupPanel'
+    url:'/dumafajee',
+    defaults: _.extend({}, BaseCompoundModel.prototype.defaults, {
+      dumafajeeId:'Compound.GroupPanel'
+    })
   });
 });

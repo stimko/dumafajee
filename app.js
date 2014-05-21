@@ -14,22 +14,39 @@ app.set('port', 3000);
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(errorHandler());
 
-app.get( '/', function(req, res, next, err) {
-    res.status(200).send('index.html');
+app.get('/dumafajee', function(req, res) {
+  res.json({
+  "dumafajeeId": "Compound.GroupPanel",
+  "items": [
+    {"dumafajeeId":"Compound.SimplePanel",
+      "description": "sdfsdfsdf",
+      "draggable":true,
+      "dataId":"Button.SimpleButton",
+      "items":[
+        {"dumafajeeId":"Image",
+          "source":"simplebuttonImage"
+        },
+        {"dumafajeeId":"Text.Label",
+          "label": "Simple button!!"
+        }
+      ]
+    },
+    {
+      "dumafajeeId":"Compound.SimplePanel",
+      "draggable":true,
+      "dataId":"Button.DropDownButton",
+      "items":[
+        {"dumafajeeId":"Image",
+          "source":"dropDownButtonImage"
+        },
+        {"dumafajeeId":"Text.Label",
+          "label": "Drop Down button!!"
+        }
+      ]
+    }
+  ]});
 });
 
-app.get( '/dumafajee', function(req, res, next, err) {
-    // res.json({"id":"Compound.SimplePanel",
-    //   "draggable":"true",
-    //   "dataId":"Button.SimpleButton",
-    //   "items":[
-    //     {"id":"Image",
-    //       "source":"simplebuttonImage"
-    //     },
-    //     {"id":"Text.Label",
-    //       "label": "Simple button!!"}]});
-});
-
-http.createServer( app ).listen( app.get( 'port' ), function() {
+http.createServer(app).listen(app.get( 'port'), function() {
   console.log('Port: ' + app.get('port'));
 });

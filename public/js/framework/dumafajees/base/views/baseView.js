@@ -2,7 +2,7 @@ define(['marionette'], function(Marionette){
   return Marionette.ItemView.extend({
     initialize: function(options) {
       this.model = options.model;
-      if (this.model.get('draggable')){
+      if (this.model.get('draggable') === true){
         this.setupDrag();
       }
     },
@@ -11,7 +11,6 @@ define(['marionette'], function(Marionette){
       this.el.addEventListener('dragstart', this.handleStartDrag.bind(this), false);
       this.el.addEventListener('drop', this.handleDragDrop.bind(this), false);
     },
-
     handleDragDrop: function(e) {
       console.log('drag end');
     },

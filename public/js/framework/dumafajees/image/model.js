@@ -1,8 +1,8 @@
 define(['framework/dumafajees/base/models/baseModel'], function(BaseModel) {
   return BaseModel.extend({
-    defaults:{
-      "id": "Image",
-      "source":"source"
-    }
+    defaults: _.extend({}, BaseModel.prototype.defaults, {
+      dumafajeeId: "Image",
+      source:"source"
+    })
   });
 });

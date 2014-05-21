@@ -1,7 +1,8 @@
 define(['Backbone', 'framework/marionetteApp'], function(Backbone, MarionetteApp) {
   return Backbone.Collection.extend({
     model: function(attrs, opts){
-      return new MarionetteApp.Registry[attrs.id+'Model'](attrs, opts);
+      opts.parse = true;
+      return new MarionetteApp.Registry[attrs.dumafajeeId+'Model'](attrs, opts);
     }
   });
 });

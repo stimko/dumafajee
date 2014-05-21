@@ -1,29 +1,30 @@
 {
-  "id": "Compound.SimplePanel",
+  "dumafajeeId": "Compound.GroupPanel",
   "items": [
-    {"id":"Compound.SimplePanel",
+    {"dumafajeeId":"Compound.SimplePanel",
       "draggable":"true",
       "dataId":"Button.SimpleButton",
-      "items":[ 
-        {"id":"Image",
+      "items":[
+        {"dumafajeeId":"Image",
           "source":"simplebuttonImage"
         },
-        {"id":"Text.Label",
+        {"dumafajeeId":"Text.Label",
           "label": "Simple button!!"
         }
       ]
     },
-    {"id":"Compound.SimplePanel",
+    {
+      "dumafajeeId":"Compound.SimplePanel",
       "draggable":"true",
       "dataId":"Button.DropDownButton",
-      "items":[ 
-        {"id":"Image",
+      "items":[
+        {"dumafajeeId":"Image",
           "source":"dropDownButtonImage"
         },
-        {"id":"Text.Label",
+        {"dumafajeeId":"Text.Label",
           "label": "Drop Down button!!"
         }
       ]
     }
-  ]
+  ]});
 }

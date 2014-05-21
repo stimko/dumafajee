@@ -1,5 +1,15 @@
 define(['./baseModel', './baseCompoundCollection'], function(BaseModel, BaseCompoundCollection) {
   return BaseModel.extend({
-    items: new BaseCompoundCollection()
+    initialize: function(){
+      if (!this.get('items')){
+        this.set('items', new BaseCompoundCollection());
+      }
+    },
+    parse: function(attrs, opts){
+      if (attrs.items) {
+        attrs.items = new BaseCompoundCollection(attrs.items, opts);
+      }
+      return attrs;
+    }
   });
 });
