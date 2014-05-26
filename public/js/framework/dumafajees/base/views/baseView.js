@@ -1,5 +1,5 @@
-define(['marionette'], function(Marionette){
-  return Marionette.ItemView.extend({
+define(['backbone'], function(Backbone){
+  return Backbone.View.extend({
     initialize: function(options) {
       this.model = options.model;
       if (this.model.get('draggable') === true){
@@ -16,6 +16,10 @@ define(['marionette'], function(Marionette){
     },
     handleStartDrag: function(e) {
       e.dataTransfer.setData('text/plain', this.model.get('dataId'));
+    },
+    render: function(){
+      this.$el.html(this.template(this.model.attributes));
+      return this;
     }
   });
 });

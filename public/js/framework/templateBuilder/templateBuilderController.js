@@ -17,25 +17,16 @@ define(function(require){
     configureTemplate: function() {
       var defaultTemplate = new DefaultTemplateModel();
       var headerRegionModel = new HeaderRegionModel();
+
       defaultTemplate.get('items').push(headerRegionModel);
       var defaultTemplateView = new DefaultTemplateView({model:defaultTemplate});
       defaultTemplateView.render();
-      defaultTemplateView.el.addEventListener('drop', this.handleDragDrop.bind(this));
-      defaultTemplateView.el.addEventListener('dragover', this.handleDragOver.bind(this));
+
+      $('#save').on('click', function(){
+        console.log(defaultTemplate);
+      }.bind(this));
+
       $('body').append([defaultTemplateView.el]);
-    },
-    handleDragDrop: function(e) {
-      var id = e.dataTransfer.getData("text/plain");
-      var modelConstructor = MarionetteApp.Registry[id + 'Model'];
-      var viewConstructor = MarionetteApp.Registry[id];
-      var instance = new modelConstructor();
-      var dataView = new viewConstructor({model:instance});
-      dataView.render();
-      e.preventDefault();
-      $(e.currentTarget).append(dataView.el);
-    },
-    handleDragOver: function(e) {
-      e.preventDefault();
     }
   });
 });

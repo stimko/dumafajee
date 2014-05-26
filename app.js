@@ -7,7 +7,7 @@ var errorHandler = require('errorhandler');
 var path = require('path');
 var app = express();
 
-app.set('port', 3000);
+app.set('port', 2000);
 //app.use(bodyParser());
 //app.use(methodOverride());
 //app.use(compress());
