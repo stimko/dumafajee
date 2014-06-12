@@ -1,8 +1,9 @@
-define(['../../base/views/baseView', 'tpl!./simpleButton.tpl'], 
-  function(BaseView, SimpleButtonTpl){
-    return BaseView.extend({
-      tagName:'button',
-      template: SimpleButtonTpl
-    });
-  }
-);
+define(function(require){
+  var BaseView = require('../../base/views/baseView');
+  var SimpleButtonTpl = require('tpl!./simpleButton.tpl');
+  
+  return BaseView.extend({
+    tagName:'button',
+    template: SimpleButtonTpl
+  });
+});

@@ -1,7 +1,8 @@
 define(function(require){
     var CompoundView = require('framework/dumafajees/base/views/compoundView');
     var SimpleButtonView = require('../../buttons/simple/view');
-    var MarionetteApp = require('framework/marionetteApp');
+    var Registry = require('framework/registry');
+    var Vent = require('framework/vent');
 
     return CompoundView.extend({
       className:'region',
@@ -9,18 +10,22 @@ define(function(require){
         this.el.addEventListener('drop', this.handleDragDrop.bind(this));
         this.el.addEventListener('dragover', this.handleDragOver.bind(this));
       },
-      handleDragDrop: function(e) {
+      handleDragDrop: function(e){
         var id = e.dataTransfer.getData("text/plain");
-        var modelConstructor = MarionetteApp.Registry[id + 'Model'];
-        var viewConstructor = MarionetteApp.Registry[id];
+        this.updateModel(id);
+        e.preventDefault();
+      },
+      updateModel: function(id){
+        var modelConstructor = Registry.Registry[id + 'Model'];
+        var viewConstructor = Registry.Registry[id];
         var instance = new modelConstructor();
         var dataView = new viewConstructor({model:instance});
         dataView.render();
         this.model.get('items').push(instance);
         this.$el.append(dataView.el);
-        e.preventDefault();
+        Vent.trigger('dumafajee:dropped', instance);
       },
-      handleDragOver: function(e) {
+      handleDragOver: function(e){
         e.preventDefault();
       }
     });

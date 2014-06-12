@@ -1,8 +1,11 @@
-define(['../../base/models/baseModel'], function(BaseModel) {
+define(function(require) {
+  var BaseModel = require('../../base/models/baseModel');
+  var DumafajeeIds = require('framework/dumafajeeIds');
+
   return BaseModel.extend({
     defaults: _.extend({}, BaseModel.prototype.defaults, {
-      dumafajeeId: "Button.SimpleButton",
-      label:"Simple"
+      dumafajeeId: DumafajeeIds.SIMPLE_BUTTON,
+      content:"Simple"
     })
   });
 });

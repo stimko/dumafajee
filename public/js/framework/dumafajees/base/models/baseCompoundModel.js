@@ -1,4 +1,7 @@
-define(['./baseModel', './baseCompoundCollection'], function(BaseModel, BaseCompoundCollection) {
+define(function(require) {
+  var BaseModel = require('./baseModel');
+  var BaseCompoundCollection = require('./baseCompoundCollection');
+
   return BaseModel.extend({
     initialize: function(){
       if (!this.get('items')){

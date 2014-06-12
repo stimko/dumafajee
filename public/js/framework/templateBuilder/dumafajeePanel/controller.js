@@ -6,7 +6,6 @@ define(function(require){
   var HeaderRegionView = require('framework/dumafajees/regions/header/view');
   var DefaultTemplateModel = require('framework/dumafajees/templates/model');
   var DefaultTemplateView = require('framework/dumafajees/templates/view');
-
   var Marionette = require('marionette');
 
   return Marionette.Controller.extend({

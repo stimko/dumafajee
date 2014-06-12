@@ -27,7 +27,7 @@ app.get('/dumafajee', function(req, res) {
           "source":"simplebuttonImage"
         },
         {"dumafajeeId":"Text.Label",
-          "label": "Simple button!!"
+          "content": "Simple button!!"
         }
       ]
     },
@@ -40,7 +40,7 @@ app.get('/dumafajee', function(req, res) {
           "source":"dropDownButtonImage"
         },
         {"dumafajeeId":"Text.Label",
-          "label": "Drop Down button!!"
+          "content": "Drop Down button!!"
         }
       ]
     }
