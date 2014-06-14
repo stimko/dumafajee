@@ -4,11 +4,13 @@ define(function(require){
 
   return BaseView.extend({
     render: function() {
-      var items = this.model.get('items').models;
-      _.each(items, this.renderItem.bind(this));
+      if (this.model){
+        var items = this.model.get('items').models;
+        _.each(items, this.renderItem.bind(this));
+      }
     },
     renderItem: function(item){
-      var view = Registry[item.get('dumafajeeId')];
+      var view = Registry.get([item.get('dumafajeeId')]);
       var viewInstance = new view({model:item});
       viewInstance.render();
       this.$el.append(viewInstance.$el);

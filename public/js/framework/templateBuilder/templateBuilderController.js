@@ -1,11 +1,11 @@
 define(function(require){
   var $ = require('jquery');
-  var HeaderRegionModel = require('framework/dumafajees/regions/header/model');
-  var ContentRegionModel = require('framework/dumafajees/regions/content/model');
-  var DefaultTemplateModel = require('framework/dumafajees/templates/model');
-  var DefaultTemplateView = require('framework/dumafajees/templates/view');
-  var DumafajeePanelController = require('./dumafajeePanel/controller');
-  var PropertiesPanelController = require('./propertiesPanel/controller');
+  var HeaderRegionModel = require('framework/dumafajees/regions/header/headerRegionModel');
+  var ContentRegionModel = require('framework/dumafajees/regions/content/contentRegionModel');
+  var DefaultTemplateModel = require('framework/dumafajees/templates/templateModel');
+  var DefaultTemplateView = require('framework/dumafajees/templates/templateView');
+  var DumafajeePanelController = require('./dumafajeePanel/dumafajeePanelController');
+  var PropertiesPanelController = require('./propertiesPanel/propertiesPanelController');
   var Controller = require('framework/controller');
 
   return Controller.extend({
@@ -13,7 +13,7 @@ define(function(require){
       var panelController = new DumafajeePanelController({
         cb:function(){this.configureTemplate()}.bind(this)
       });
-      var propertiesView = new PropertiesPanelController();
+      //var propertiesController = new PropertiesPanelController();
     },
     configureTemplate: function() {
       var defaultTemplate = new DefaultTemplateModel();

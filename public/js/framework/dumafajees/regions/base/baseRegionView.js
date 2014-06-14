@@ -1,6 +1,6 @@
 define(function(require){
     var CompoundView = require('framework/dumafajees/base/views/compoundView');
-    var SimpleButtonView = require('../../buttons/simple/view');
+    var SimpleButtonView = require('../../buttons/simple/simpleButtonView');
     var Registry = require('framework/registry');
     var Vent = require('framework/vent');
 
@@ -16,8 +16,8 @@ define(function(require){
         e.preventDefault();
       },
       updateModel: function(id){
-        var modelConstructor = Registry.Registry[id + 'Model'];
-        var viewConstructor = Registry.Registry[id];
+        var modelConstructor = Registry.get([id + 'Model']);
+        var viewConstructor = Registry.get([id]);
         var instance = new modelConstructor();
         var dataView = new viewConstructor({model:instance});
         dataView.render();

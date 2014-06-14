@@ -1,5 +1,5 @@
 define(function(require) {
-  var SimpleButton = require('../simple/model');
+  var SimpleButton = require('../simple/simpleButtonModel');
   var DumafajeeIds = require('framework/dumafajeeIds');
 
   return SimpleButton.extend({

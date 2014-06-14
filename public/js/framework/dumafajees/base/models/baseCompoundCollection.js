@@ -5,7 +5,8 @@ define(function(require) {
   return Backbone.Collection.extend({
     model: function(attrs, opts){
       opts.parse = true;
-      return new Registry[attrs.dumafajeeId+'Model'](attrs, opts);
+      var constructor = Registry.get([attrs.dumafajeeId+'Model']);
+      return new constructor(attrs, opts);
     }
   });
 });
