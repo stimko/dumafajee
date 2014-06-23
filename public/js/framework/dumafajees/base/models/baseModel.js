@@ -4,10 +4,7 @@ define(['Backbone'], function(Backbone){
       dumafajeeId: 'Rythym.Base',
       description: 'default',
       version: '0.1',
-      editType:'default',
-      memo:'',
-      accepts: [],
-      draggable: false
+      type:'simple'
     }
   });
 });

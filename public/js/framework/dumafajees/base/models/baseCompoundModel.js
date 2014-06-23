@@ -3,6 +3,9 @@ define(function(require) {
   var BaseCompoundCollection = require('./baseCompoundCollection');
 
   return BaseModel.extend({
+    defaults: _.extend({}, BaseModel.prototype.defaults,{
+      type: 'compound'
+    }),
     initialize: function(){
       if (!this.get('items')){
         this.set('items', new BaseCompoundCollection());

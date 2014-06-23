@@ -1,7 +1,7 @@
 define(function(require){
   var $ = require('jquery');
   var CompoundPanelModel = require('framework/dumafajees/panel/group/groupPanelModel');
-  var CompoundPanelView = require('framework/dumafajees/panel/group/groupPanelView');
+  var DumafajeePanelView = require('./dumafajeePanelView');
   var HeaderRegionModel = require('framework/dumafajees/regions/header/headerRegionModel');
   var HeaderRegionView = require('framework/dumafajees/regions/header/headerRegionView');
   var DefaultTemplateModel = require('framework/dumafajees/templates/templateModel');
@@ -16,9 +16,11 @@ define(function(require){
     setupPanel: function() {
       var test = new CompoundPanelModel();
       var wow = test.fetch({success:function(model, response, opts){
-        var compoundPanelView = new CompoundPanelView({model:model});
-        compoundPanelView.render();
-        $('body').append([compoundPanelView.el]);
+        var compoundPanelView = new DumafajeePanelView({
+          model:model,
+          $container:'body',
+          draggable:true
+        });
         this.cb();
       }.bind(this)});
     }

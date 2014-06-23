@@ -1,7 +1,12 @@
+<label>id</label>
+<input type="text" disabled rv-value="model.dumafajeeId">
 
-<% _.each(this.modelAttributes, function(attribute){ %>
+<label>content</label>
+<input type="text" rv-value="model.content">
 
-  <label>attribute.key</label>
-  <input type="text" value="attribute.value">
 
-<% }); %>
+<label>description</label>
+<input type="text" rv-value="model.description">
+
+
+

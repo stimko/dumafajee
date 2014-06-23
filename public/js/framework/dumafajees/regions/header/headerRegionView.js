@@ -1,6 +1,6 @@
-define(['../base/baseRegionView'],
-  function(BaseRegionView){
-    return BaseRegionView.extend({
+define(['framework/dumafajees/base/views/compoundView'],
+  function(CompoundView){
+    return CompoundView.extend({
       tagName:'header'
     });
   }

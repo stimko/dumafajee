@@ -8,5 +8,5 @@ define(function(){
     get: function(id){
       return registry[id];
     }
-  }
+  };
 });

@@ -18,31 +18,22 @@ app.get('/dumafajee', function(req, res) {
   res.json({
   "dumafajeeId": "Compound.GroupPanel",
   "items": [
-    {"dumafajeeId":"Compound.SimplePanel",
+    {"dumafajeeId":"Button.SimpleButton",
       "description": "sdfsdfsdf",
-      "draggable":true,
       "dataId":"Button.SimpleButton",
-      "items":[
-        {"dumafajeeId":"Image",
-          "source":"simplebuttonImage"
-        },
-        {"dumafajeeId":"Text.Label",
-          "content": "Simple button!!"
-        }
-      ]
+      "draggable": true,
+      "content": "SimpleButton"
     },
     {
-      "dumafajeeId":"Compound.SimplePanel",
-      "draggable":true,
+      "dumafajeeId":"Button.DropDownButton",
       "dataId":"Button.DropDownButton",
-      "items":[
-        {"dumafajeeId":"Image",
-          "source":"dropDownButtonImage"
-        },
-        {"dumafajeeId":"Text.Label",
-          "content": "Drop Down button!!"
-        }
-      ]
+      "draggable": true,
+      "content": "Drop Down Button"
+    },
+    {
+      "dumafajeeId":"Toolbar.Horizontal",
+      "draggable": true,
+      "dataId":"Toolbar.Horizontal"
     }
   ]});
 });

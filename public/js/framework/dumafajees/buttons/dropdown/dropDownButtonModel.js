@@ -6,7 +6,7 @@ define(function(require) {
     defaults: _.extend({}, SimpleButton.prototype.defaults, {
       dumafajeeId: DumafajeeIds.DROP_DOWN_BUTTON,
       content:"Drop Down",
-      items: []
+      menu: []
     })
   });
 });

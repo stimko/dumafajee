@@ -1,7 +1,7 @@
-define(['../base/baseRegionView'],
-  function(BaseRegionView){
-    return BaseRegionView.extend({
-      className:'content'
+define(['framework/dumafajees/base/views/compoundView'],
+  function(CompoundView){
+    return CompoundView.extend({
+      className:['content', CompoundView.prototype.className].join(' ')
     });
   }
 );

@@ -1,14 +1,23 @@
 define(function(require){
-    var BaseView = require('framework/dumafajees/base/views/baseView');
+    var Backbone = require('backbone');
     var PropertiesTemplate = require('tpl!./propertiesPanel.tpl');
-    return BaseView.extend({
+    var rivets = require('rivets');
+    
+    return Backbone.View.extend({
+      className: 'group-panel',
+      template: PropertiesTemplate,
       updateModel: function(model){
         this.model = model;
-        this.modelAttributes = _.map(this.model.attributes, function(attr){
-          console.log(attr);
-        });
+        this.render();
       },
-      template: PropertiesTemplate
+      render: function(){
+        this.$el.html(this.template());
+        rivets.bind(this.$el, {model:this.model.attributes});
+        if(this.$container){
+          this.$el.appendTo(this.$container);
+        }
+        return this;
+      }
     });
   }
 );

@@ -1,6 +1,6 @@
-define(['../base/baseRegionModel'], function(RegionModel) {
-  return RegionModel.extend({
-    defaults: _.extend({}, RegionModel.prototype.defaults, {
+define(['framework/dumafajees/base/models/baseCompoundModel'], function(CompoundModel) {
+  return CompoundModel.extend({
+    defaults: _.extend({}, CompoundModel.prototype.defaults, {
       dumafajeeId:"Region.Content"
     })
   });

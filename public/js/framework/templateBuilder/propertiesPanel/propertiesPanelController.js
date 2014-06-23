@@ -9,12 +9,9 @@ define(function(require){
       this.setupPanel();
     },
     setupPanel: function() {
-      var propertiesPanelView = new PropertiesPanelView();
-      propertiesPanelView.render();
-
+      var propertiesPanelView = new PropertiesPanelView({$container:'body'});
       Vent.on('dumafajee:dropped', function(dumafajee){
         propertiesPanelView.updateModel(dumafajee);
-        $('body').append([propertiesPanelView.el]);
       });
     }
   });

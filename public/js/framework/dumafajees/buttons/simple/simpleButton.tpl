@@ -1,1 +1,1 @@
-<%= content %>
+{ model.content }

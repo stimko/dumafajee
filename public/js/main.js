@@ -6,6 +6,7 @@ requirejs.config({
       marionette: 'backbone.marionette',
       underscore: 'underscore',
       framework: '../framework',
+      rivets: 'rivets',
       tpl:'tpl'
     },
     map: {

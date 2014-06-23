@@ -1,6 +1,6 @@
 <button><%= content %></button>
 <div>
-<% _.each(items, function(item){ %>
+<% _.each(menu, function(item){ %>
     <button> <%= item %> </button>
 <% }); %>
 </div>
