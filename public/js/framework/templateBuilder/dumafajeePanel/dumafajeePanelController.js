@@ -7,6 +7,7 @@ define(function(require){
   var DefaultTemplateModel = require('framework/dumafajees/templates/templateModel');
   var DefaultTemplateView = require('framework/dumafajees/templates/templateView');
   var Controller = require('framework/controller');
+  var DesignViewMixin = require('framework/dumafajees/base/mixins/designView');
 
   return Controller.extend({
     initialize: function(opts) {
@@ -16,7 +17,8 @@ define(function(require){
     setupPanel: function() {
       var test = new CompoundPanelModel();
       var wow = test.fetch({success:function(model, response, opts){
-        var compoundPanelView = new DumafajeePanelView({
+        var designDumafajeePanelView = DumafajeePanelView.extend(DesignViewMixin);
+        var compoundPanelView = new designDumafajeePanelView({
           model:model,
           $container:'body',
           draggable:true

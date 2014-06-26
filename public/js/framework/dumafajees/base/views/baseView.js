@@ -1,11 +1,12 @@
-define(['backbone', 'rivets'], function(Backbone, Rivets){
+define(function(require){
+  var Backbone = require('backbone');
+  var Rivets = require('rivets');
+
   return Backbone.View.extend({
     className:'dumafajee',
     initialize: function(opts) {
       this.model = opts.model;
       this.$container = opts.$container;
-      this.droppable = opts.droppable;
-      this.draggable = opts.draggable;
       this.render();
     },
     render: function(){
@@ -15,18 +16,6 @@ define(['backbone', 'rivets'], function(Backbone, Rivets){
         this.$el.appendTo(this.$container);
       }
       this.afterRender();
-      return this;
-    },
-    setupDrag: function() {
-      this.$el.attr('draggable', 'true');
-      this.$el.on('dragstart', this.handleStartDrag.bind(this));
-      this.$el.on('drop', this.handleDragDrop.bind(this));
-    },
-    handleDragDrop: function(e) {
-      console.log('drag end');
-    },
-    handleStartDrag: function(e) {
-      e.originalEvent.dataTransfer.setData('text/plain', this.model.get('dataId'));
     },
     afterRender:function(){}
   });

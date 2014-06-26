@@ -7,6 +7,7 @@ define(function(require){
   var DumafajeePanelController = require('./dumafajeePanel/dumafajeePanelController');
   var PropertiesPanelController = require('./propertiesPanel/propertiesPanelController');
   var Controller = require('framework/controller');
+  var DesignViewMixin = require('framework/dumafajees/base/mixins/designView');
 
   return Controller.extend({
     initialize: function() {
@@ -19,10 +20,12 @@ define(function(require){
       var headerRegionModel = new HeaderRegionModel();
 
       defaultTemplate.get('items').push(headerRegionModel);
-      var defaultTemplateView = new TemplateView({
+      var designTemplateView = TemplateView.extend(DesignViewMixin);
+      var defaultTemplateView = new designTemplateView({
         model:defaultTemplate,
         $container:'body',
-        droppable:true
+        droppable:true,
+        clickable:true
       });
       var propertiesController = new PropertiesPanelController();
     }

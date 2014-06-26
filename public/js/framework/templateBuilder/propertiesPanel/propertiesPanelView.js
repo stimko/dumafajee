@@ -6,6 +6,7 @@ define(function(require){
     return Backbone.View.extend({
       className: 'group-panel',
       template: PropertiesTemplate,
+      $container:'body',
       updateModel: function(model){
         this.model = model;
         this.render();
