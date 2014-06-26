@@ -1,7 +1,7 @@
 define(function(require){
 
   var DumafajeeIds = require('framework/dumafajeeIds');
-  var dumafajeeRegistry = require('framework/registry')
+  var dumafajeeRegistry = require('framework/registry');
 
   dumafajeeRegistry.register(DumafajeeIds.LABEL, require('./dumafajees/text/label/labelView'));
   dumafajeeRegistry.register(DumafajeeIds.LABEL_MODEL, require('./dumafajees/text/label/labelModel'));
