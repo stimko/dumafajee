@@ -1,8 +1,6 @@
 define(function(require){
   var $ = require('jquery');
-  var HeaderRegionModel = require('framework/dumafajees/regions/header/headerRegionModel');
-  var ContentRegionModel = require('framework/dumafajees/regions/content/contentRegionModel');
-  var DefaultTemplateModel = require('framework/dumafajees/templates/templateModel');
+  var BaseCompoundModel = require('framework/dumafajees/base/models/baseCompoundModel');
   var TemplateView = require('framework/dumafajees/templates/templateView');
   var DumafajeePanelController = require('./dumafajeePanel/dumafajeePanelController');
   var PropertiesPanelController = require('./propertiesPanel/propertiesPanelController');
@@ -16,8 +14,8 @@ define(function(require){
       });
     },
     configureTemplate: function() {
-      var defaultTemplate = new DefaultTemplateModel();
-      var headerRegionModel = new HeaderRegionModel();
+      var defaultTemplate = new BaseCompoundModel({dumafajeeId:'Template'});
+      var headerRegionModel = new BaseCompoundModel({dumafajeeId:'Region.Header'});
 
       defaultTemplate.get('items').push(headerRegionModel);
       var designTemplateView = TemplateView.extend(DesignViewMixin);

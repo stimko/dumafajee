@@ -1,11 +1,11 @@
 define(function(require) {
   var Backbone = require('Backbone'); 
-  var Registry = require('framework/registry');
+  var ModelRegistry = require('framework/registry/model/modelRegistry');
 
   return Backbone.Collection.extend({
     model: function(attrs, opts){
       opts.parse = true;
-      var constructor = Registry.get([attrs.dumafajeeId+'.Model']);
+      var constructor = ModelRegistry.get(attrs.dumafajeeId+'.Model', attrs.type);
       return new constructor(attrs, opts);
     }
   });

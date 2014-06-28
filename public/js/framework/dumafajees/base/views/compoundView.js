@@ -1,5 +1,6 @@
 define(function(require){
   var BaseView = require('./baseView');
+  var ViewRegistry = require('framework/registry/view/viewRegistry');
 
   return BaseView.extend({
     className: 'compound-dumafajee',
@@ -12,7 +13,7 @@ define(function(require){
       this.afterRender();
     },
     renderItem: function(item){
-      var view = Registry.get([item.get('dumafajeeId')]);
+      var view = ViewRegistry.get([item.get('dumafajeeId')]);
       var viewInstance = new view({
         model:item,
         $container:this.$el

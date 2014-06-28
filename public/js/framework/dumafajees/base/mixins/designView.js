@@ -1,7 +1,9 @@
 define(function(require){
   var BaseView = require('../views/baseView');
-  var Registry = require('framework/registry');
+  var ViewRegistry = require('framework/registry/view/viewRegistry');
+  var ModelRegistry = require('framework/registry/model/modelRegistry');
   var Vent = require('framework/vent');
+
   var mixin = {
     initialize: function(opts){
       this.droppable = opts.droppable;
@@ -26,7 +28,11 @@ define(function(require){
       console.log('drag end');
     },
     handleStartDrag: function(e) {
-      e.originalEvent.dataTransfer.setData('text/plain', this.model.get('dataId'));
+      var transferObject = {
+        id:this.model.get('dataId'), 
+        type: this.model.get('type')
+      };
+      e.originalEvent.dataTransfer.setData('text/json', JSON.stringify(transferObject));
     },
     setupDrop: function(){
       this.$el.on('drop', this.handleDragDrop.bind(this));
@@ -35,14 +41,14 @@ define(function(require){
     handleDragDrop: function(e){
       e.preventDefault();
       e.stopImmediatePropagation();
-      var id = e.originalEvent.dataTransfer.getData("text/plain");
-      this.updateModel(id);
+      var transferObject = JSON.parse(e.originalEvent.dataTransfer.getData("text/json"));
+      this.updateModel(transferObject);
     },
-    updateModel: function(id){
-      var modelConstructor = Registry.get([id + '.Model']);
-      var viewConstructor = Registry.get([id]);
+    updateModel: function(transferObject){
+      var modelConstructor = ModelRegistry.get(transferObject.id+'.Model', transferObject.type);
+      var viewConstructor = ViewRegistry.get([transferObject.id]);
       var designViewConstructor = viewConstructor.extend(mixin);
-      var instance = new modelConstructor();
+      var instance = new modelConstructor({dumafajeeId:transferObject.id});
       var dataView = new designViewConstructor({
         model:instance,
         $container:this.$el,
@@ -64,7 +70,7 @@ define(function(require){
       }
     },
     renderItem: function(item){
-      var view = Registry.get([item.get('dumafajeeId')]);
+      var view = ViewRegistry.get(item.get('dumafajeeId'));
       var designView = view.extend(mixin);
       var viewInstance = new designView({
         model:item, 

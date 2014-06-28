@@ -1,10 +1,10 @@
 define(function(require) {
-  var SimpleButton = require('../simple/simpleButtonModel');
-  var DumafajeeIds = require('framework/dumafajeeIds');
+  var BaseModel = require('framework/dumafajees/base/models/baseModel');
+  var ModelIds = require('framework/registry/model/modelIds');
 
-  return SimpleButton.extend({
-    defaults: _.extend({}, SimpleButton.prototype.defaults, {
-      dumafajeeId: DumafajeeIds.DROP_DOWN_BUTTON,
+  return BaseModel.extend({
+    defaults: _.extend({}, BaseModel.prototype.defaults, {
+      dumafajeeId: ModelIds.DROP_DOWN_BUTTON,
       content:"Drop Down",
       menu: []
     })

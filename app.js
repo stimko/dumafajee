@@ -14,7 +14,7 @@ app.set('port', 2000);
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(errorHandler());
 
-app.get('/dumafajee', function(req, res) {
+app.get('/availableDumafajees', function(req, res) {
   res.json({
   "dumafajeeId": "Compound.GroupPanel",
   "items": [
@@ -33,7 +33,8 @@ app.get('/dumafajee', function(req, res) {
     {
       "dumafajeeId":"Toolbar.Horizontal",
       "draggable": true,
-      "dataId":"Toolbar.Horizontal"
+      "dataId":"Toolbar.Horizontal",
+      "type": "compound"
     }
   ]});
 });

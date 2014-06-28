@@ -1,10 +1,10 @@
 define(function(require) {
   var BaseModel = require('framework/dumafajees/base/models/baseModel'); 
-  var DumafajeeIds = require('framework/dumafajeeIds');
+  var ModelIds = require('framework/registry/model/modelIds');
   
   return BaseModel.extend({
     defaults: _.extend({}, BaseModel.prototype.defaults, {
-      dumafajeeId: DumafajeeIds.IMAGE,
+      dumafajeeId: ModelIds.IMAGE,
       source:"source"
     })
   });

@@ -1,6 +1,6 @@
-define(['framework/panel/group/compound/compoundPanelModel'], 
-  function(CompoundPanelModel) {
-    return CompoundPanelModel.extend({
+define(['framework/dumafajees/base/models/baseCompoundModel'], 
+  function(BaseCompoundModel) {
+    return BaseCompoundModel.extend({
       url:'/availableDumafajees'
     });
   }
