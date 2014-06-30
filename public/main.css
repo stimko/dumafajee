@@ -48,3 +48,7 @@ header{
 .hori-toolbar > * {
   display: inline-block;
 }
+
+.dragover {
+  background: green;
+}

@@ -21,9 +21,7 @@ define(function(require){
       var designTemplateView = TemplateView.extend(DesignViewMixin);
       var defaultTemplateView = new designTemplateView({
         model:defaultTemplate,
-        $container:'body',
-        droppable:true,
-        clickable:true
+        $container:'body'
       });
       var propertiesController = new PropertiesPanelController();
     }
