@@ -7,7 +7,8 @@ define(function(require) {
       type: 'compound'
     }),
     initialize: function(){
-      this.set('items', new BaseCompoundCollection(this.get('items')));
+      if (!(this.get('items') instanceof BaseCompoundCollection))
+        this.set('items', new BaseCompoundCollection(this.get('items')));
     },
     parse: function(attrs, opts){
       if (attrs.items) {

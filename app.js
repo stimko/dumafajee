@@ -17,26 +17,80 @@ app.use(errorHandler());
 app.get('/availableDumafajees', function(req, res) {
   res.json({
   "dumafajeeId": "Compound.GroupPanel",
+  "type":"compound",
   "items": [
-    {"dumafajeeId":"Button.SimpleButton",
-      "description": "sdfsdfsdf",
+    {
+      "dumafajeeId":"Compound.SimplePanel",
+      "items":[
+        {
+          "dumafajeeId":"Text.Label",
+          "content":"Simple Button",
+          "type": "simple"
+        }
+      ],
+      "draggable": true,
       "dataId":"Button.SimpleButton",
-      "draggable": true,
-      "content": "SimpleButton"
+      "dataType":"simple",
+      "type": "compound"
     },
     {
-      "dumafajeeId":"Button.DropDownButton",
-      "dataId":"Button.DropDownButton",
-      "draggable": true,
-      "content": "Drop Down Button"
-    },
-    {
-      "dumafajeeId":"Toolbar.Horizontal",
+      "dumafajeeId":"Compound.SimplePanel",
+      "items":[
+        {
+          "dumafajeeId":"Text.Label",
+          "content":"Toolbar",
+          "type": "simple"
+        }
+      ],
       "draggable": true,
       "dataId":"Toolbar.Horizontal",
+      "dataType":"compound",
+      "type": "compound"
+    },
+    {
+      "dumafajeeId":"Compound.SimplePanel",
+      "items":[
+        {
+          "dumafajeeId":"Text.Label",
+          "content":"Label",
+          "type": "simple"
+        }
+      ],
+      "draggable": true,
+      "dataId":"Text.Label",
+      "dataType":"simple",
+      "type": "compound"
+    }, 
+    {
+      "dumafajeeId":"Compound.SimplePanel",
+      "items":[
+        {
+          "dumafajeeId":"Text.Label",
+          "content":"Header",
+          "type": "simple"
+        }
+      ],
+      "draggable": true,
+      "dataId":"Region.Header",
+      "dataType":"compound",
+      "type": "compound"
+    },
+    {
+      "dumafajeeId":"Compound.SimplePanel",
+      "items":[
+        {
+          "dumafajeeId":"Text.Label",
+          "content":"Content",
+          "type": "simple"
+        }
+      ],
+      "draggable": true,
+      "dataId":"Region.Content",
+      "dataType":"compound",
       "type": "compound"
     }
-  ]});
+  ]
+  });
 });
 
 http.createServer(app).listen(app.get( 'port'), function() {

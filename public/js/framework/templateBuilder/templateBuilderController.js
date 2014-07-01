@@ -15,9 +15,6 @@ define(function(require){
     },
     configureTemplate: function() {
       var defaultTemplate = new BaseCompoundModel({dumafajeeId:'Template'});
-      var headerRegionModel = new BaseCompoundModel({dumafajeeId:'Region.Header'});
-
-      defaultTemplate.get('items').push(headerRegionModel);
       var designTemplateView = TemplateView.extend(DesignViewMixin);
       var defaultTemplateView = new designTemplateView({
         model:defaultTemplate,

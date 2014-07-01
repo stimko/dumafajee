@@ -11,7 +11,11 @@ define(function(require){
       console.log('drag end');
     },
     handleStartDrag: function(e) {
-      e.originalEvent.dataTransfer.setData('text/json', JSON.stringify(this.model.attributes));
+      var transferObject = {
+        dumafajeeId: this.model.get('dataId'),
+        type: this.model.get('dataType')
+      }
+      e.originalEvent.dataTransfer.setData('text/json', JSON.stringify(transferObject));
     },
     renderItem: function(item){
       var view = ViewRegistry.get(item.get('dumafajeeId'));
