@@ -28,8 +28,8 @@ html, body {
   width: 200px;
 }
 
-.group-panel > * {
-  float: left;
+.group-panel > label {
+  width:100%;
 }
 
 header{

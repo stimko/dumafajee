@@ -20,7 +20,7 @@ define(function(require){
       this.dirty = false;
     },
     setupClick: function(){
-      this.$el.on('mousedown', this.handleMouseDown.bind(this));
+      this.$el.on('click', this.handleMouseDown.bind(this));
     },
     handleMouseDown:function(e){
       e.preventDefault();
@@ -60,8 +60,8 @@ define(function(require){
       e.stopImmediatePropagation();
       if (this.dirty) this.remove();
     },
-    handleRemoveRequest:function(event, model){
-      event.stopImmediatePropagation();
+    handleRemoveRequest:function(e, model){
+      e.stopImmediatePropagation();
       this.model.get('items').remove(model);
     },
     setupDrop: function(){
@@ -79,7 +79,7 @@ define(function(require){
           this.remove();
         }
       }.bind(this));
-      //this.setupClick();
+      this.setupClick();
       this.setupDrag();
     }
   };
