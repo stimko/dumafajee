@@ -1,1 +1,1 @@
-{ model.content }
+{model.content}

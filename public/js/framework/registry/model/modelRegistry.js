@@ -8,8 +8,16 @@ define(function(require){
     get: function(id, type){
       if (registry[id])
         return registry[id];
-      else 
-        return type === 'compound' ? registry['BaseCompoundModel'] : registry['BaseModel'];
+      else {
+        switch(type){
+          case 'compound':
+            return registry['BaseCompoundModel'];
+          case 'content':
+            return registry['BaseContentModel'];
+          default:
+            return registry['BaseModel'];
+        }
+      }
     }
   };
 });

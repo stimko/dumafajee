@@ -3,7 +3,7 @@ define(['framework/dumafajees/base/views/baseView'],
     return BaseView.extend({
       tagName: 'img',
       render: function() {
-        this.el.setAttribute('src', this.model.get('source'));
+        this.el.setAttribute('src', this.model.get('content'));
       }
     });
   }

@@ -1,11 +1,20 @@
-define(['Backbone'], function(Backbone){
+define(function(require){
+  var Backbone = require('backbone');
+  var DisplayPropertiesCollection = require('./displayPropertiesCollection');
+
   return Backbone.Model.extend({
     defaults: {
-      dumafajeeId: 'Rythym.Base',
-      description: 'default',
-      version: '0.1',
+      dumafajeeId:'Rythym.Base',
       type:'simple',
-      content: 'default'
+    },
+    initialize: function(){
+      this.set('displayProperties', new DisplayPropertiesCollection([
+        {
+          disabled: true,
+          long: true,
+          display:"Description"
+        }
+      ]));
     }
   });
 });

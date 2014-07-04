@@ -25,12 +25,10 @@ app.get('/availableDumafajees', function(req, res) {
         {
           "dumafajeeId":"Text.Label",
           "content":"Simple Button",
-          "type": "simple"
         }
       ],
-      "draggable": true,
       "dataId":"Button.SimpleButton",
-      "dataType":"simple",
+      "dataType":"content",
       "type": "compound"
     },
     {
@@ -38,11 +36,9 @@ app.get('/availableDumafajees', function(req, res) {
       "items":[
         {
           "dumafajeeId":"Text.Label",
-          "content":"Toolbar",
-          "type": "simple"
+          "content":"Toolbar"
         }
       ],
-      "draggable": true,
       "dataId":"Toolbar.Horizontal",
       "dataType":"compound",
       "type": "compound"
@@ -52,13 +48,11 @@ app.get('/availableDumafajees', function(req, res) {
       "items":[
         {
           "dumafajeeId":"Text.Label",
-          "content":"Label",
-          "type": "simple"
+          "content":"Label"
         }
       ],
-      "draggable": true,
       "dataId":"Text.Label",
-      "dataType":"simple",
+      "dataType":"content",
       "type": "compound"
     }, 
     {
@@ -66,26 +60,10 @@ app.get('/availableDumafajees', function(req, res) {
       "items":[
         {
           "dumafajeeId":"Text.Label",
-          "content":"Header",
-          "type": "simple"
+          "content":"Header"
         }
       ],
-      "draggable": true,
       "dataId":"Region.Header",
-      "dataType":"compound",
-      "type": "compound"
-    },
-    {
-      "dumafajeeId":"Compound.SimplePanel",
-      "items":[
-        {
-          "dumafajeeId":"Text.Label",
-          "content":"Content",
-          "type": "simple"
-        }
-      ],
-      "draggable": true,
-      "dataId":"Region.Content",
       "dataType":"compound",
       "type": "compound"
     }

@@ -1,13 +1,17 @@
-<label>id</label>
-<input type="text" disabled rv-value="model.dumafajeeId">
+<h3>{ model.dumafajeeId }</h3>
+<form>
+  <fieldset rv-if="model.content">
+    <label>Content</label>
+    <input rv-value="model.content">
+  </fieldset>
+  <fieldset rv-each-prop="displayProperties">
+    <label rv-text="prop.attributes.display"></label>
 
-<label>content</label>
-<input type="text" rv-value="model.content">
+    <input rv-unless="prop.attributes.long" rv-disabled="prop.attributes.disabled" rv-value="prop.attributes.value">
+    <textarea rv-if="prop.attributes.long" rv-value="prop.attributes.value"></textarea>
+  </fieldset>
+</form>
 
-
-<label>description</label>
-<input type="text" rv-value="model.description">
-
-
-
-
+<div class="dropzone"> 
+  <i class="fa fa-trash-o">
+</div>
