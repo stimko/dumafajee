@@ -1,0 +1,116 @@
+html, body {
+  height: 100%;
+}
+
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+h3{
+  font-size: 1.4em;
+}
+
+form {
+  padding: 5px;
+}
+
+.template {
+  float: left;
+  height: 100%;
+  min-width: 200px;
+  width: calc(100% - 400px);
+}
+
+.dumafajee, .compound-dumafajee {
+  position: relative;
+}
+
+.dumafajee-panel .panel.compound-dumafajee{
+  background: grey;
+  padding: 5px;
+  border: 1px solid whitesmoke;
+  float:left;
+}
+
+.group-panel {
+  float: left;
+  height: 100%;
+  background: whitesmoke;
+  width: 200px;
+  padding: 5px;
+}
+
+header{
+  height: 90px;
+}
+
+[draggable], [draggable] * {
+  cursor:move;
+}
+
+.dumafajee-panel label{
+  display:block;
+}
+
+.hori-toolbar{
+  min-width: 100px;
+  height: 25px;
+  background: grey;
+}
+
+.hori-toolbar > * {
+  display: inline-block;
+}
+
+.content {
+  height:100%;
+}
+
+.layout {
+  border:solid 1px grey;
+}
+
+.widget-toolbar {
+  position: absolute;
+  opacity: 0;
+  top:0;
+  right:0;
+  padding:3px;
+}
+
+.widget-toolbar i {
+  float:left;
+  cursor: pointer;
+}
+
+.properties-panel {
+  position: relative;
+}
+
+.properties-panel form > label {
+  width:100%;
+  display:block;
+}
+
+.properties-panel .fa-trash-o{
+  margin: 0 auto;
+  color: whitesmoke;
+  display: block;
+  text-align: center;
+  color:rgb(221, 221, 221);
+}
+
+.properties-panel .dropzone{
+  width:100%;
+  position: absolute;
+  bottom: 0;
+  font-size: 70px;
+}
+
+.properties-panel .dropzone.dragover{
+  font-size: 97px;
+}
+
