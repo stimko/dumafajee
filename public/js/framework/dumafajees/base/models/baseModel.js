@@ -8,13 +8,21 @@ define(function(require){
       type:'simple',
     },
     initialize: function(){
-      this.set('displayProperties', new DisplayPropertiesCollection([
-        {
-          disabled: true,
-          long: true,
-          display:"Description"
-        }
-      ]));
+      if (!this.get('displayProperties')) {
+        this.set('displayProperties', new DisplayPropertiesCollection([
+          {
+            long: true,
+            display:"Description"
+          },
+          {
+            display:'Something else',
+            value:'Testing',
+            long: true
+          }
+        ]));
+      } else if (!(this.get('displayProperties') instanceof DisplayPropertiesCollection)) {
+        this.set('displayProperties', new DisplayPropertiesCollection(this.get('displayProperties')));
+      }
     }
   });
 });
