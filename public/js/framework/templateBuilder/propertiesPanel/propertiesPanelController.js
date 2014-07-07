@@ -10,12 +10,6 @@ define(function(require){
     },
     setupPanel: function() {
       var propertiesPanelView = new PropertiesPanelView();
-      Vent.on({'dumafajee:clicked':this.showDumafajee.bind(propertiesPanelView),
-        'dumafajee:dropped':this.showDumafajee.bind(propertiesPanelView)
-      });
-    },
-    showDumafajee: function(dumafajee){
-      this.updateModel(dumafajee);
     }
   });
 });

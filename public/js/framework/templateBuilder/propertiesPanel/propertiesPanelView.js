@@ -3,43 +3,57 @@ define(function(require){
     var PropertiesTemplate = require('tpl!./propertiesPanel.tpl');
     var rivets = require('rivets');
     var Vent = require('framework/vent');
-    
+    var $ = require('jquery');
+
     return Backbone.View.extend({
       className: 'group-panel properties-panel',
       template: PropertiesTemplate,
       $container:'body',
-      updateModel: function(model){
-        this.model = model;
+      initialize: function(){
+        Vent.on({'dumafajee:clicked':this.updateModel.bind(this),
+          'dumafajee:dropped':this.updateModel.bind(this)
+        });
         this.render();
       },
-      render: function(){
+      updateModel: function(model){
+        this.render(model);
+      },
+      render: function(model){
         this.$el.html(this.template());
         this.configureDropZone();
 
         if (this.rivetsView) 
           this.rivetsView.unbind();
 
-        this.rivetsView = rivets.bind(this.$el, {
-          model:this.model.attributes, 
-          displayProperties:this.model.get('displayProperties').models
-        });
-
         this.$el.appendTo(this.$container);
+
+        if(model) {
+          this.rivetsView = rivets.bind(this.$el, {
+            model:model.attributes, 
+            displayProperties:model.get('displayProperties').models
+          });
+          $('#dumafajeeDetails').show();
+        } else $('#dumafajeeDetails').
+
+        ();
       },
       configureDropZone:function(){
-        var $dropzone = this.$el.find('.dropzone');
-        $dropzone.on('drop', function(){
-          Vent.trigger('dumafajee:cleanup');
-          $dropzone.removeClass('dragover');
-          this.rivetsView.unbind();
-        }.bind(this));
-        $dropzone.on('dragover', function(e){
-          e.preventDefault();
-          $dropzone.addClass('dragover');
-        });
-        $dropzone.on('dragout', function(e){
-          $dropzone.removeClass('dragover');
-        });
+        this.$dropzone = this.$el.find('.dropzone');
+        this.$dropzone.on('drop', this.handleDrop.bind(this));
+        this.$dropzone.on('dragover', this.handleDragOver.bind(this));
+        this.$dropzone.on('dragout', this.handleDragLeave.bind(this));
+      },
+      handleDragLeave: function(e){
+        this.$dropzone.removeClass('dragover');
+      },
+      handleDragOver: function(e){
+        e.preventDefault();
+        this.$dropzone.addClass('dragover');
+      },
+      handleDrop: function(){
+        Vent.trigger('dumafajee:cleanup');
+        this.$dropzone.removeClass('dragover');
+        this.render();
       }
     });
   }

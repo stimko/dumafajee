@@ -114,3 +114,7 @@ header{
   font-size: 97px;
 }
 
+.properties-panel fieldset{
+  padding: 5px;
+}
+
