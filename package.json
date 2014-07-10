@@ -14,5 +14,9 @@
     "method-override": "^1.0.0",
     "compression": "^1.0.2",
     "errorhandler": "^1.0.1"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-requirejs": "^0.4.2"
   }
 }

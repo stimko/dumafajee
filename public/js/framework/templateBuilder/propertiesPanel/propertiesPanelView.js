@@ -33,9 +33,7 @@ define(function(require){
             displayProperties:model.get('displayProperties').models
           });
           $('#dumafajeeDetails').show();
-        } else $('#dumafajeeDetails').
-
-        ();
+        } else $('#dumafajeeDetails').hide();
       },
       configureDropZone:function(){
         this.$dropzone = this.$el.find('.dropzone');
