@@ -1,5 +1,3 @@
-
-
 module.exports = function(grunt) {
 
   grunt.initConfig({
@@ -7,10 +5,15 @@ module.exports = function(grunt) {
     requirejs: {
         compile: {
           options: {
-            almond: true,
-            baseUrl: "public/js",
-            mainConfigFile: "public/main.js",
-            out: "build/optimized.js"
+            almond:true,
+            baseUrl: "public/js/vendor",
+            mainConfigFile: "public/js/main.js",
+            name: '../main',
+            findNestedDependencies: true,
+            generateSourceMaps: false,
+            optimize:"none",
+            wrap: true,
+            out: "public/build/build.js"
           }
         }
       }
@@ -18,5 +21,4 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-requirejs');
   grunt.registerTask('build', 'requirejs');
-
 };

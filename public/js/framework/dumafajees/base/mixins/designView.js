@@ -34,9 +34,16 @@ define(function(require){
     },
     handleStartDrag: function(e){
       e.stopImmediatePropagation();
+      Vent.trigger('dumafajee:clicked', this.model);
       this.dirty = true;
       this.$el.off('drop');
-      e.originalEvent.dataTransfer.setData('text/json', JSON.stringify(this.model.attributes));
+      var transferObject = {
+        model:this.model.attributes,
+        cid: this.model.cid
+      };
+
+      console.log(this.model.cid);
+      e.originalEvent.dataTransfer.setData('text/json', JSON.stringify(transferObject));
     },
     handleDragEnd: function(e){
       e.stopImmediatePropagation();
@@ -52,20 +59,18 @@ define(function(require){
       e.preventDefault();
       e.stopImmediatePropagation();
       var transferObject = JSON.parse(e.originalEvent.dataTransfer.getData("text/json"));
-      this.updateModel(transferObject);
+      this.updateModel(transferObject.model, transferObject.cid);
     },
-    updateModel: function(model){
-      var modelConstructor = ModelRegistry.get(model.dumafajeeId+'.Model', model.type);
+    updateModel: function(model, cid){
       var viewConstructor = ViewRegistry.get([model.dumafajeeId]);
-      var instance = new modelConstructor(model);
+      var instance = this.model.get('items').push(model);
       var designViewConstructor = viewConstructor.extend(mixin);
       var dataView = new designViewConstructor({
         model:instance,
         $container:this.$el,
       });
-      this.model.get('items').push(instance);
       Vent.trigger('dumafajee:dropped', instance);
-      Vent.trigger('dumafajee:cleanup');
+      Vent.trigger('dumafajee:cleanup', cid);
     },
     handleDragOver: function(e){
       e.preventDefault();
@@ -78,16 +83,12 @@ define(function(require){
         $container:this.$el
       });
     },
-    handleCleanupRequest: function(e){
+    handleRemoveRequest: function(e, cid){
       e.stopImmediatePropagation();
-      if (this.dirty) this.remove();
+      this.model.get('items').remove(cid);
     },
-    handleRemoveRequest: function(e, model){
-      e.stopImmediatePropagation();
-      this.model.get('items').remove(model);
-    },
-    cleanup: function(){
-      this.$el.parent().trigger('remove:dumafajee', this.model);
+    cleanup: function(cid){
+      this.$el.parent().trigger('remove:dumafajee', cid);
       this.remove();
     },
     afterRender:function(){
@@ -95,9 +96,9 @@ define(function(require){
         this.setupDrop();
         this.$el.on('remove:dumafajee', this.handleRemoveRequest.bind(this));
       }
-      Vent.on('dumafajee:cleanup', function(){
+      Vent.on('dumafajee:cleanup', function(cid){
         if (this.dirty) {
-          this.cleanup();
+          this.cleanup(cid);
         }
       }.bind(this));
       this.setupClick();

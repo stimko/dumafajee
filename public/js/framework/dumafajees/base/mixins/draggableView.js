@@ -12,8 +12,10 @@ define(function(require){
     },
     handleStartDrag: function(e) {
       var transferObject = {
-        dumafajeeId: this.model.get('dataId'),
-        type: this.model.get('dataType')
+        model:{
+          dumafajeeId: this.model.get('dataId'),
+          type: this.model.get('dataType')
+        }
       }
       e.originalEvent.dataTransfer.setData('text/json', JSON.stringify(transferObject));
     },

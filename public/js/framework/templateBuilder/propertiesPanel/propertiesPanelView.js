@@ -48,8 +48,9 @@ define(function(require){
         e.preventDefault();
         this.$dropzone.addClass('dragover');
       },
-      handleDrop: function(){
-        Vent.trigger('dumafajee:cleanup');
+      handleDrop: function(e){
+        var transferObject = JSON.parse(e.originalEvent.dataTransfer.getData("text/json"));
+        Vent.trigger('dumafajee:cleanup', transferObject.cid);
         this.$dropzone.removeClass('dragover');
         this.render();
       }
