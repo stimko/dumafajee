@@ -14,7 +14,8 @@ define(function(require){
       var transferObject = {
         model:{
           dumafajeeId: this.model.get('dataId'),
-          type: this.model.get('dataType')
+          type: this.model.get('dataType'),
+          path: this.model.get('path')
         }
       }
       e.originalEvent.dataTransfer.setData('text/json', JSON.stringify(transferObject));

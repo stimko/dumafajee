@@ -5,6 +5,10 @@ define(function(require){
   var Vent = require('framework/vent');
 
   var mixin = {
+    initialize: function(opts){
+      this.views = [];
+      BaseView.prototype.initialize.call(this, opts);
+    },
     setupDrag: function(){
       this.$el.attr('draggable', 'true');
       this.$el.on('dragstart', this.handleStartDrag.bind(this));
@@ -41,8 +45,6 @@ define(function(require){
         model:this.model.attributes,
         cid: this.model.cid
       };
-
-      console.log(this.model.cid);
       e.originalEvent.dataTransfer.setData('text/json', JSON.stringify(transferObject));
     },
     handleDragEnd: function(e){
@@ -69,6 +71,7 @@ define(function(require){
         model:instance,
         $container:this.$el,
       });
+      this.views.push(dataView);
       Vent.trigger('dumafajee:dropped', instance);
       Vent.trigger('dumafajee:cleanup', cid);
     },
@@ -78,6 +81,7 @@ define(function(require){
     renderItem: function(item){
       var viewConstructor = ViewRegistry.get([item.get('dumafajeeId')]);
       var designView = viewConstructor.extend(mixin);
+      this.views.push(designView);
       var viewInstance = new designView({
         model:item,
         $container:this.$el
@@ -89,7 +93,15 @@ define(function(require){
     },
     cleanup: function(cid){
       this.$el.parent().trigger('remove:dumafajee', cid);
+      this.removeViews();
+    },
+    removeViews: function(){
+      this.views.forEach(function(view){
+        view.removeViews();
+        delete view;
+      });
       this.remove();
+      delete this;
     },
     afterRender:function(){
       if (this.model.get('type') === 'compound'){

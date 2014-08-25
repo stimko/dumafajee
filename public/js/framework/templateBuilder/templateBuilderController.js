@@ -1,11 +1,12 @@
 define(function(require){
   var $ = require('jquery');
-  var BaseCompoundModel = require('framework/dumafajees/base/models/baseCompoundModel');
+  var TemplateModel = require('framework/dumafajees/templates/templateModel');
   var TemplateView = require('framework/dumafajees/templates/templateView');
   var DumafajeePanelController = require('./dumafajeePanel/dumafajeePanelController');
   var PropertiesPanelController = require('./propertiesPanel/propertiesPanelController');
   var Controller = require('framework/controller');
   var DesignViewMixin = require('framework/dumafajees/base/mixins/designView');
+  var TemplateViewMixin = require('framework/dumafajees/base/mixins/templateViewMixin');
 
   return Controller.extend({
     initialize: function() {
@@ -14,13 +15,19 @@ define(function(require){
       });
     },
     configureTemplate: function() {
-      var defaultTemplate = new BaseCompoundModel({dumafajeeId:'Template'});
-      var designTemplateView = TemplateView.extend(DesignViewMixin);
+      var defaultTemplate = new TemplateModel({dumafajeeId:'Template'});
+      defaultTemplate.url = '/build';
+
+      var designTemplateView = TemplateView.extend(DesignViewMixin).extend(TemplateViewMixin);
       var defaultTemplateView = new designTemplateView({
         model:defaultTemplate,
         $container:'body'
       });
+
       var propertiesController = new PropertiesPanelController();
+      $('#save').on('click', function(e){
+        defaultTemplate.save()
+      });
     }
   });
 });

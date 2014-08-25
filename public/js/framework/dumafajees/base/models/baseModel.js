@@ -6,6 +6,7 @@ define(function(require){
     defaults: {
       dumafajeeId:'Rythym.Base',
       type:'simple',
+      path: ''
     },
     initialize: function(){
       if (!this.get('displayProperties')) {

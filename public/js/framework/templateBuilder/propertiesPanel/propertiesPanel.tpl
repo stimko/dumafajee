@@ -13,7 +13,7 @@
     </fieldset>
   </form>
 
-  <div class="dropzone"> 
+  <div class="dropzone">
     <i class="fa fa-trash-o">
   </div>
 </div>

@@ -5,7 +5,7 @@ define(function(require){
   var Vent = require('framework/vent');
 
   return Controller.extend({
-    initialize: function(opts) {
+    initialize: function() {
       this.setupPanel();
     },
     setupPanel: function() {
