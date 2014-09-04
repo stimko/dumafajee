@@ -22,14 +22,14 @@ define(function(require){
         this.$el.html(this.template());
         this.configureDropZone();
 
-        if (this.rivetsView) 
+        if (this.rivetsView)
           this.rivetsView.unbind();
 
         this.$el.appendTo(this.$container);
 
         if(model) {
           this.rivetsView = rivets.bind(this.$el, {
-            model:model.attributes, 
+            model:model.attributes,
             displayProperties:model.get('displayProperties').models
           });
           $('#dumafajeeDetails').show();
