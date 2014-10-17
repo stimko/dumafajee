@@ -1,5 +1,5 @@
 define(function(require) {
-  var Backbone = require('Backbone'); 
+  var Backbone = require('Backbone');
   var ModelRegistry = require('framework/registry/model/modelRegistry');
 
   return Backbone.Collection.extend({

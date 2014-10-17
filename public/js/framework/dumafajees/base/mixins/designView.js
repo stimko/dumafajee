@@ -81,11 +81,11 @@ define(function(require){
     renderItem: function(item){
       var viewConstructor = ViewRegistry.get([item.get('dumafajeeId')]);
       var designView = viewConstructor.extend(mixin);
-      this.views.push(designView);
       var viewInstance = new designView({
         model:item,
         $container:this.$el
       });
+      this.views.push(viewInstance);
     },
     handleRemoveRequest: function(e, cid){
       e.stopImmediatePropagation();

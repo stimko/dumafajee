@@ -12,7 +12,7 @@ requirejs.config({
     map: {
       // '*' means all modules will get private versions
       // for their dependency.
-      '*': { 
+      '*': {
         'backbone': 'backbone-private'
       },
 

@@ -1,5 +1,4 @@
 define(function(require){
-
   return {
     extend: function(overrides){
       var controller = function(){

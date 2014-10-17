@@ -25,7 +25,7 @@ define(function(require){
       });
 
       var propertiesController = new PropertiesPanelController();
-      $('#save').on('click', function(e){
+      $('#publish').on('click', function(e){
         defaultTemplate.save()
       });
     }
