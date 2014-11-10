@@ -26,7 +26,7 @@ define(function(require){
 
       var propertiesController = new PropertiesPanelController();
       $('#publish').on('click', function(e){
-        defaultTemplate.save()
+        defaultTemplate.save();
       });
     }
   });
